@@ -19,8 +19,8 @@ import java.util.Date;
 public class Evento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Integer evento_id;
-
     private String nome;
     private Date data;
     private String descricao;

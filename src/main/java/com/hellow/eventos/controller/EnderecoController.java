@@ -2,6 +2,8 @@ package com.hellow.eventos.controller;
 
 import com.hellow.eventos.classes.endereco.Endereco;
 import com.hellow.eventos.classes.endereco.EnderecoRepository;
+import com.hellow.eventos.classes.tipo.Tipo;
+import com.hellow.eventos.classes.tipo.TipoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +16,15 @@ public class EnderecoController {
     @Autowired
     private EnderecoRepository enderecoRepository;
 
-    @GetMapping(name="/todos")
+    @Autowired
+    private TipoRepository tipoRepository;
+
+    @GetMapping("todos")
     public List<Endereco> getTodosEnderecos(){
         return enderecoRepository.findAll();
     }
 
-    @PostMapping(name="/add")
+    @PostMapping("add")
     public Endereco addEndereco(@RequestBody Endereco endereco){
         enderecoRepository.save(endereco);
         return endereco;

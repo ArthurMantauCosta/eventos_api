@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/evento")
+@RequestMapping("evento")
 public class EventoController {
     @Autowired
     private EventoRepository eventoRepository;
 
-    @GetMapping(name="/todos")
+    @GetMapping("todos")
     public List<Evento> getTodosEventos(){
         return eventoRepository.findAll();
     }
 
-    @PostMapping(name="/add")
+    @PostMapping("add")
     public Evento addEvento(@RequestBody Evento evento){
         eventoRepository.save(evento);
         return evento;
