@@ -26,6 +26,7 @@ public class EnderecoController {
 
     @PostMapping("add")
     public Endereco addEndereco(@RequestBody Endereco endereco){
+        Tipo tipo = tipoRepository.findById(endereco.getTipo().getTipo_id()).orElseThrow(()->new RuntimeException("Tipo não existe"));
         enderecoRepository.save(endereco);
         return endereco;
     }
